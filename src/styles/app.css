@@ -1,10 +1,65 @@
+body {
+    overflow: hidden;
+}
+
 .app__container {
     /* border: 20px solid #BA4949; */
     border :20px solid hsl(200, 50%, 50%);
+    height: 100vh;
+}
+
+.menu__container {
+    overflow-y: scroll;
+}
+
+.menu__container .menu__list > div {
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    padding : 4px 0;
 }
 
 .menu__container .menu__list .menu__item {
-    padding: 10px 0;
+    padding: 4px 8px;
+    border-radius: 4px;
     color: hsl(200, 80%, 30%);
     font-weight: 500;
+
+    background-color: aquamarine;
+}
+
+.menu__container .menu__list .menu__item:hover {
+    background-color: #ddd;
+}
+
+.menu__container .menu__list .menu__item:active {
+    color: hsl(230, 80%, 50%);
+}
+
+
+.menu__list div .templates {
+    display: flex;
+    flex-direction: column;
+}
+
+.menu__list div .templates li {
+    margin: 6px 8px;
+}
+
+.menu__list div .templates .template 
+{
+    font-weight: 400;
+    /* color: #397097; */
+    color: #38858A;
+    padding: 4px 16px;
+    border-radius: 3px;
+    background-color: #ddd;
+
+
+}
+
+.menu__list div .templates .template:hover {
+    background-color: bisque;
+
+
 }
