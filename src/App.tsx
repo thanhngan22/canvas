@@ -1,20 +1,15 @@
 import React from 'react';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
-import Menu from './components/Menu';
+import routes from './routes';
 
 function App() {
-  return (
-    <div className="App ">
-      <div className="app__container flex border border-slate-500 border-8  ">
-      <div className="menu__container w-5/12 min-h-screen bg-red-200 border-r border-red-500">
-        <Menu />
-      </div>
-      <div className="display__container bg-green-200 w-7/12">
-        <canvas id="canvas" ></canvas>
-      </div>
-      </div>
-    </div>
-  );
+    const router = createBrowserRouter(routes);
+    return (
+        <div className="App ">
+            <RouterProvider router={router} />
+        </div>
+    );
 }
 
 export default App;

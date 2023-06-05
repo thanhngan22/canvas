@@ -1,0 +1,10 @@
+.app__container {
+    /* border: 20px solid #BA4949; */
+    border :20px solid hsl(200, 50%, 50%);
+}
+
+.menu__container .menu__list .menu__item {
+    padding: 10px 0;
+    color: hsl(200, 80%, 30%);
+    font-weight: 500;
+}
