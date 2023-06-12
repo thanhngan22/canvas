@@ -37,16 +37,18 @@ body {
 }
 
 
-.menu__list div .templates {
-    display: flex;
+.menu__list ul {
+    display: none;
     flex-direction: column;
+
 }
 
-.menu__list div .templates li {
+
+.menu__list ul li {
     margin: 6px 8px;
 }
 
-.menu__list div .templates .template 
+.menu__list ul a 
 {
     font-weight: 400;
     /* color: #397097; */
@@ -58,7 +60,7 @@ body {
 
 }
 
-.menu__list div .templates .template:hover {
+.menu__list ul .template:hover {
     background-color: bisque;
 
 
