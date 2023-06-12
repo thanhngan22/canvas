@@ -29,7 +29,7 @@ body {
 }
 
 .menu__container .menu__list .menu__item:hover {
-    background-color: #ddd;
+    background-color: #BA4949;
 }
 
 .menu__container .menu__list .menu__item:active {

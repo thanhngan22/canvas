@@ -6,28 +6,28 @@ import { useEffect } from 'react';
 
 import * as dat from 'dat.gui';
 
-// add dat gui settings ........................................................................................................
-let gui : dat.GUI;
+export default function Template2() {
+    let gui: dat.GUI;
 
-const settings = {
-    balls: 2,
-    speed: 4,
-    reset: false
-};
-// ---------------------------------------------------------------------------------------------------------------------
+    const settings = {
+        balls: 20,
+        speed: 5,
+    };
 
-export default function Template1() {
-    // add dat gui
+    // add gui
     useEffect(() => {
-        gui = new dat.GUI();
+        // add dat gui ........................................................................................................
+        gui = new dat.GUI({ name: 'Your settings'});
         gui.domElement.style.position = 'absolute';
-        gui.domElement.style.top = '16px';
-        gui.domElement.style.right = '4px';
+        gui.domElement.style.right = '5px';
+        gui.domElement.style.top = '20px';
 
+        // ---------------------------------------------------------------------------------------------------------------------
         return () => {
+            // cleanup
+            // console.log('cleanup dat.gui');
             gui.destroy();
         }
-
     }, []);
 
     // variables
@@ -52,8 +52,8 @@ export default function Template1() {
                 const radius = Math.random() * 3 + 30;
                 const x = Math.random() * (window.innerWidth - radius * 2) + radius;
                 const y = Math.random() * (window.innerHeight - radius * 2) + radius;
-                const dx = Math.random() + speed;
-                const dy = Math.random() + speed;
+                const dx = Math.random() + speed ;
+                const dy = Math.random() + speed ;
                 const color = colors.getRandomColor();
                 circleArray.push(
                     new Circle({ x, y, dx, dy, r: radius, color, c, w: window.innerWidth, h: window.innerHeight }),
@@ -64,9 +64,11 @@ export default function Template1() {
         // animation
         function animate() {
             requestAnimationFrame(animate);
+            c.fillStyle = 'rgba(255, 255, 255, 0.05)';
+            c.fillRect(0, 0, window.innerWidth, window.innerHeight);
 
             for (let i = 0; i < circleArray.length; i++) {
-                circleArray[i].updateStroke();
+                circleArray[i].updateFill();
             }
         }
 
@@ -74,26 +76,21 @@ export default function Template1() {
         init(settings.balls, settings.speed);
         animate();
 
-        gui.add(settings, 'balls', 1, 6, 1).onChange(value => {
-            c.clearRect(0, 0, window.innerWidth, window.innerHeight);
+        gui.add(settings, 'balls', 1, 80, 1).onChange(value => {
             settings.balls = value;
             init(value, settings.speed);
         });
-        gui.add(settings, 'speed', 1, 5, 1).onChange(value => {
-            settings.speed = value;
+        gui.add(settings, 'speed', 1, 30, 1).onChange(value => {
             for (let i = 0; i < circleArray.length; i++) {
-                circleArray[i].dx = Math.random() + value;
-                circleArray[i].dy = Math.random() + value;
+                settings.speed = value;
+                circleArray[i].dx = Math.random() + value ;
+                circleArray[i].dy = Math.random() + value ;
             }
-        });
-
-        gui.add(settings, 'reset').onChange(value => {
-                c.clearRect(0, 0, window.innerWidth, window.innerHeight);
-                init(settings.balls, settings.speed);
         });
 
         return () => {
             // cleanup
+            // console.log('cleanup');
             c.clearRect(0, 0, window.innerWidth, window.innerHeight);
         };
     }, []);
