@@ -1,20 +1,14 @@
-import Circle from '../../modules/Circle';
-import Colors from '../../modules/Colors';
+import Circle from '../../utils/Circle';
+import Colors from '../../utils/Colors';
 
 // hooks
 import { useEffect } from 'react';
 
 export default function TypeDefault() {
-    const mouse = {
-        x: 0,
-        y: 0,
-    };
 
     // variables
     const colors = new Colors();
     const circleArray: Circle[] = [];
-    const maxRadius = 40;
-    const minRadius = 2;
 
     useEffect(() => {
         // canvas
@@ -51,12 +45,6 @@ export default function TypeDefault() {
                 circleArray[i].updateFill();
             }
         }
-
-        // event listeners
-        window.addEventListener('mousemove', event => {
-            mouse.x = event.clientX;
-            mouse.y = event.clientY;
-        });
 
         // start
         init();

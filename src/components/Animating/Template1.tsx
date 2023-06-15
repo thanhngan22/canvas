@@ -1,5 +1,5 @@
-import Circle from '../../modules/Circle';
-import Colors from '../../modules/Colors';
+import Circle from '../../utils/Circle';
+import Colors from '../../utils/Colors';
 
 // hooks
 import { useEffect } from 'react';

@@ -2,6 +2,7 @@ import Layout from "./layout";
 import TemplateDefault from "./components/Animating/TemplateDefault";
 
 import routerAnimating from "./components/Animating";
+import routerCircleMotion from "./components/Circular.Motion";
 
 
 const routes = [
@@ -11,6 +12,7 @@ const routes = [
         children: [
             {path: "/", element: <TemplateDefault /> },
             ...routerAnimating,
+            ...routerCircleMotion
         ]
       
     },
